@@ -1,0 +1,44 @@
+{
+	"classes" : {
+		"Math 170A" : {
+			"date" : ["Mon", "Wed", "Fri"],
+			"time" : "9:00 - 9:50"
+		},
+		"Econ 185" : {
+			"date" : ["Sat"],
+			"time" : "9:00 - 15:00"
+		},
+		"Math 170A Dis 1A" : {
+			"date" : ["Tue"],
+			"time" : "9:00 - 9:50"
+		},
+		"Math 131A" : {
+			"date" : ["Mon", "Wed", "Fri"],
+			"time" : "10:00 - 10:50"
+		},
+		"Math 131A Dis 3A" : {
+			"date" : ["Thur"],
+			"time" : "10:00 - 10:50"
+		},
+		"Comm 10 Dis 1A" : {
+			"date" : ["Tue"],
+			"time" : "11:00 - 11:50"
+		},
+		"Econ 102" : {
+			"date" : ["Mon", "Wed"],
+			"time" : "14:00 - 15:10"
+		},
+		"Comm 10" : {
+			"date" : ["Tue", "Thur"],
+			"time" : "14:00 - 15:50"
+		},
+		"Environ 885" : {
+			"date" : ["Thur"],
+			"time" : "16:00 - 16:50"
+		},
+		"Econ 102 Dis 1C" : {
+			"date" : ["Tue"],
+			"time" : "16:00 - 17:50"
+		}
+	}
+}
