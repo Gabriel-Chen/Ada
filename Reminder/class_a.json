@@ -17,7 +17,7 @@
 			"time" : "10:00 - 10:50"
 		},
 		"Math 131A Dis 3A" : {
-			"date" : ["Thur"],
+			"date" : ["Thu"],
 			"time" : "10:00 - 10:50"
 		},
 		"Comm 10 Dis 1A" : {
@@ -29,11 +29,11 @@
 			"time" : "14:00 - 15:10"
 		},
 		"Comm 10" : {
-			"date" : ["Tue", "Thur"],
+			"date" : ["Tue", "Thu"],
 			"time" : "14:00 - 15:50"
 		},
 		"Environ 885" : {
-			"date" : ["Thur"],
+			"date" : ["Thu"],
 			"time" : "16:00 - 16:50"
 		},
 		"Econ 102 Dis 1C" : {

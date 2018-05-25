@@ -16,7 +16,7 @@ def get_post (class_num, class_list):
     now = datetime.datetime.now()
     post = "Good morning! This is Ada. Today is " + now.strftime('%c') + ". "
     if class_num == 0:
-        return post + "You have now classes today, enjoy your day! "
+        return post + "You have no classes today, enjoy your day! "
     post += "You will have " + str(class_num) + " classes today, they are " + ', '.join(class_list) + ". Have a wonderful day! "
     return post
 
@@ -26,7 +26,7 @@ def push_message (file_name):
     class_list = list()
     class_num = get_class(data, now.strftime('%a'), class_list)
     post = get_post(class_num, class_list)
-    bash_command = "echo " + post + " | mutt -s 'Classes for Today' me"
+    bash_command = "echo " + post + " | mutt -s 'Classes for Today' love"
     subprocess.Popen(bash_command, shell=True)
     return True
     

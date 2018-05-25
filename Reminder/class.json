@@ -6,12 +6,12 @@
 		},
 
 		"EE 16B" : {
-			"date" : ["Tue", "Thur"],
+			"date" : ["Tue", "Thu"],
 			"time" : "17:00 - 18:30"
 		},
 
 		"CS 70" : {
-			"date" : ["Tue", "Thur"],
+			"date" : ["Tue", "Thu"],
 			"time" : "12:30 - 14:00"
 		}
 	}

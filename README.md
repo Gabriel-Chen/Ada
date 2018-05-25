@@ -1,6 +1,6 @@
 # Ada - an engine powered by love
 
-This project means to help my girlfriend and I get through college without a messy time scheduel. It includes two parts for now which are `remingder` and `weather` and runs currently on a Raspberry Pi with `crontab`.
+This project means to help my girlfriend and I get through college without a messy time scheduel. It includes two parts for now which are `reminder` and `weather` and runs currently on a Raspberry Pi with `crontab`.
 
 ## Weather
 
