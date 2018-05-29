@@ -23,14 +23,14 @@ def get_post (city):
     data.write("Hey my babe, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! ")
     return True
 
-def push_message (city):
+def push_message (city, who):
     get_post(city)
-    bash_command = "mutt -s 'Morning My Babe!' love < " + city + "_post"
+    bash_command = "mutt -s 'Morning My Babe!' " + who + " < " + city + "_post"
     subprocess.Popen(bash_command, shell=True)
     return True
 
 if __name__ == "__main__":
     get_source_data('LA', 'https://weather.com/weather/5day/l/USCA0638:1:US')
     get_source_data('Berkeley', 'https://weather.com/weather/5day/l/USCA0087:1:US')
-    push_message('LA')
-    push_message('Berkeley')
+    push_message('LA', 'love')
+    push_message('Berkeley', 'me')
