@@ -16,16 +16,22 @@ def get_weather_narrative (data):
     d = data.find_all('td', {'class' : 'description'})
     return re.search(r'\stitle="(.*?)\"', str(d[0]))
 
-def get_post (city):
+def get_post (city, who):
     weather_data = parse_html(city)
     narrative = get_weather_narrative(weather_data).group(1)
     data = open(city + "_post", 'w')
-    data.write("Hey my babe, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! ")
+    if who == 'love':
+        data.write("Hey my babe, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! ")
+    else:
+        data.write("Morning! This is Ada, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! ")
     return True
 
 def push_message (city, who):
-    get_post(city)
-    bash_command = "mutt -s 'Morning My Babe!' " + who + " < " + city + "_post"
+    get_post(city, who)
+    if who == 'love':
+        bash_command = "mutt -s 'Morning My Babe!' " + who + " < " + city + "_post"
+    else:
+        bash_command = "mutt -s 'Good Morning' " + who + " < " + city + "_post"
     subprocess.Popen(bash_command, shell=True)
     return True
 
