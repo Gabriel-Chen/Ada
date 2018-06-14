@@ -1,7 +1,11 @@
 #!/usr/bin/python3
 import re
 import subprocess
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 from bs4 import BeautifulSoup
+from keys import *
 
 def get_source_data(city, address):
     bash_command = "curl -o " + city + " " + address
@@ -19,20 +23,28 @@ def get_weather_narrative (data):
 def get_post (city, who):
     weather_data = parse_html(city)
     narrative = get_weather_narrative(weather_data).group(1)
-    data = open(city + "_post", 'w')
     if who == 'love':
-        data.write("Hey my babe, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! ")
-    else:
-        data.write("Morning! This is Ada, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! ")
-    return True
+        return "Hey my babe, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! "
+    return "Morning! This is Ada, the weather today for " + city + " looks like " + narrative + " Hope you would have a wonderful day! "
 
 def push_message (city, who):
-    get_post(city, who)
+    post = get_post(city, who)
+    msg = MIMEMultipart()
+    msg['From'] = gmail_name
+    to_list = [my_phone]
     if who == 'love':
-        bash_command = "mutt -s 'Morning My Babe!' " + who + " < " + city + "_post"
+        to_list,append(love_phone)
+        msg['Subject'] = "Morning My Babe!"
     else:
-        bash_command = "mutt -s 'Good Morning' " + who + " < " + city + "_post"
-    subprocess.Popen(bash_command, shell=True)
+        msg['Subject'] = "Good Morning!"
+    msg.attach(MIMEText(post, 'plain'))
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(gmail_name, gmail_pass)
+    for to in to_list:
+        msg['To'] = to
+        server.sendmail(gmail_name, msg['To'], msg.as_string())
+    server.quit()
     return True
 
 if __name__ == "__main__":

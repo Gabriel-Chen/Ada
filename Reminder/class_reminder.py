@@ -3,6 +3,10 @@ import json
 import datetime
 import subprocess
 import holidays
+from keys import *
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 def get_class (data, date, class_list):
     count = 0
@@ -30,10 +34,21 @@ def push_message (file_name, who):
     class_list = list()
     class_num = get_class(data, now.strftime('%a'), class_list)
     post = get_post(class_num, class_list, now)
-    bash_command = "echo " + post + " | mutt -s 'Classes for Today' " + who
-    subprocess.Popen(bash_command, shell=True)
+    msg = MIMEMultipart()
+    msg['From'] = gmail_name
+    to_list = [my_phone]
+    if who == 'love':
+        to_list,append(love_phone)
+    msg['Subject'] = "Classes for Today"
+    msg.attach(MIMEText(post, 'plain'))
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.starttls()
+    server.login(gmail_name, gmail_pass)
+    for to in to_list:
+        msg['To'] = to
+        server.sendmail(gmail_name, msg['To'], msg.as_string())
+    server.quit()
     return True
-    
 
 if __name__ == "__main__":
     push_message('class.json', 'me')
