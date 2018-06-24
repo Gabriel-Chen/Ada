@@ -48,7 +48,8 @@ def push_message (city, who):
     return True
 
 if __name__ == "__main__":
-    get_source_data('LA', 'https://weather.com/weather/5day/l/USCA0638:1:US')
+    #get_source_data('LA', 'https://weather.com/weather/5day/l/USCA0638:1:US')
     get_source_data('Berkeley', 'https://weather.com/weather/5day/l/USCA0087:1:US')
-    push_message('LA', 'love')
+    get_source_data('Shenzhen', 'https://weather.com/weather/5day/l/CHXX0120:1:CH')
+    push_message('Shenzhen', 'love')
     push_message('Berkeley', 'me')
