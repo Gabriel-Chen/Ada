@@ -1,6 +1,7 @@
 # Ada - An Engine Powered by Love
+![build](https://img.shields.io/travis/Gabriel-Chen/Ada.svg?longCache=true&style=flat-square) ![license](https://img.shields.io/badge/license-MIT-blue.svg?longCache=true&style=flat-square) ![download](https://img.shields.io/github/downloads/gabriel-chen/ada/total.svg?longCache=true&style=flat-square)
 
-This project means to help my girlfriend and I get through college without a messy time scheduel. It includes two parts for now which are `reminder` and `weather` and runs currently on a Raspberry Pi with `crontab`.
+This project initially means to help my girlfriend and I get through college without a messy time scheduel. It includes two parts for now which are `reminder` and `weather` and runs currently on a Raspberry Pi with `crontab`. This project can be used as a personal reminder on a running server (such as Raspberry Pi ).
 
 ## Weather
 
@@ -30,7 +31,7 @@ Also, if a day is a holidy in the U.S., all the classes are going to be ignored 
 
 ![ada-reminder-holiday](https://i.imgur.com/YQJo5wQ.png)
 
-## Usage
+## Getting Start
 
 This tool can also be modified and used on your demand. First, you should have a local file called `keys.py`  under both feature‘s directory to store all the keys for sending out messages. The content of `keys.py` should be like bellow:
 

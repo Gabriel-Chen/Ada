@@ -1,0 +1,13 @@
+language: python
+
+python:
+    - "3.6"
+
+script:
+    - python3 ./weather/weather_push.py
+    - python3 ./reminder/class_reminder.py
+
+sudo: enable
+
+ignore:
+    - keys.py
